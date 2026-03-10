@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Question For You</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  text-align:center;
+  padding:40px;
+}
+
+.container{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  max-width:400px;
+  margin:auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  position:relative;
+  height:300px;
+}
+
+button{
+  padding:12px 20px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.yes{
+  background:#2ed573;
+  color:white;
+}
+
+.no{
+  background:#ff4757;
+  color:white;
+  position:absolute;
+}
+
+#result{
+  margin-top:20px;
+  font-size:18px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Hey Amina ❤️</h2>
+<p>I have something important to ask you...</p>
+
+<h3>Do you love me?</h3>
+
+<button class="yes" onclick="yes()">Yes ❤️</button>
+<button class="no" id="noBtn">No 😢</button>
+
+<p id="result"></p>
+</div>
+
+<script>
+function yes(){
+document.getElementById("result").innerHTML =
+"Your joru ka gulam is the happiest person right now ❤️";
+}
+
+let noBtn = document.getElementById("noBtn");
+
+function moveButton(){
+let container = document.querySelector(".container");
+
+let maxX = container.clientWidth - noBtn.clientWidth;
+let maxY = container.clientHeight - noBtn.clientHeight;
+
+let x = Math.random() * maxX;
+let y = Math.random() * maxY;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("click", moveButton);
+</script>
+
+</body>
+</html>
